@@ -36,4 +36,6 @@ class MainActivity : AppCompatActivity() {
         val adapter = CountryDataAdapter(DataStore.normalArray)
         countryList.adapter = adapter
     }
+
+
 }

@@ -1,9 +1,11 @@
 package com.example.anoopmohanan.worldcountrieskotlin
 
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import kotlinx.android.synthetic.main.countrylist_layout.view.*
 
 /**
@@ -21,8 +23,7 @@ class CountryDataAdapter(val items: List<Country>):RecyclerView.Adapter<CountryD
         if (holder == null){
             return
         }
-        holder.countryListCell.mainText.text = items[position].countryName
-        holder.countryListCell.detailedText.text = items[position].countryCode
+        holder.bind(items[position])
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
@@ -34,7 +35,24 @@ class CountryDataAdapter(val items: List<Country>):RecyclerView.Adapter<CountryD
     }
 
 
-    class ViewHolder(val countryListCell: View): RecyclerView.ViewHolder(countryListCell){
+    class ViewHolder(countryListCell: View): RecyclerView.ViewHolder(countryListCell){
 
+        val itemVw = countryListCell
+
+        fun bind(item: Country) {
+            itemVw.mainText.text = item.countryName
+            itemVw.detailedText.text = item.countryCode
+            //itemView.setOnClickListener { Toast.makeText(it.context, "$item.countryName", Toast.LENGTH_SHORT).show() }
+            itemVw.setOnClickListener { loadDetails(itemView,item) }
+        }
+
+        fun loadDetails(itemView: View, item: Country){
+
+            val context = itemView.context
+            val showDetailsIntent = Intent(context, DetailActivity::class.java)
+            showDetailsIntent.putExtra("CountryName", item.countryCode)
+            context.startActivity(showDetailsIntent)
+
+        }
     }
 }
