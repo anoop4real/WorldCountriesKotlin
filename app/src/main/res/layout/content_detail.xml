@@ -20,14 +20,123 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="I AM DETAIL"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="162dp"
+        android:layout_height="112dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
+        app:srcCompat="@mipmap/ic_launcher_round"/>
+
+    <TextView
+    android:id="@+id/nameView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    android:text="Name"
+    app:layout_constraintStart_toStartOf="@+id/imageView"
+    app:layout_constraintTop_toBottomOf="@+id/imageView"/>
+
+    <TextView
+        android:id="@+id/nameVal"
+        android:layout_width="185dp"
+        android:layout_height="21dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="8dp"
+        android:textAlignment="viewEnd"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.74"
+        app:layout_constraintStart_toEndOf="@+id/nameView"
+        app:layout_constraintTop_toTopOf="@+id/nameView"/>
+
+    <TextView
+        android:id="@+id/nativeNameView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Native Name"
+        app:layout_constraintStart_toStartOf="@+id/nameView"
+        app:layout_constraintTop_toBottomOf="@+id/nameView"/>
+
+    <TextView
+        android:id="@+id/nativeNameVal"
+        android:layout_width="185dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="8dp"
+        android:textAlignment="viewEnd"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/nativeNameView"
+        app:layout_constraintTop_toTopOf="@+id/nativeNameView"/>
+
+    <TextView
+        android:id="@+id/regionView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Region"
+        app:layout_constraintStart_toStartOf="@+id/nativeNameView"
+        app:layout_constraintTop_toBottomOf="@+id/nativeNameView"/>
+
+    <TextView
+        android:id="@+id/regionViewVal"
+        android:layout_width="185dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="8dp"
+        android:textAlignment="viewEnd"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.72"
+        app:layout_constraintStart_toEndOf="@+id/regionView"
+        app:layout_constraintTop_toTopOf="@+id/regionView"/>
+
+    <TextView
+        android:id="@+id/capitalView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Capital"
+        app:layout_constraintStart_toStartOf="@+id/regionView"
+        app:layout_constraintTop_toBottomOf="@+id/regionView"/>
+
+    <TextView
+        android:id="@+id/capitalViewVal"
+        android:layout_width="185dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="8dp"
+        android:textAlignment="viewEnd"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.72"
+        app:layout_constraintStart_toEndOf="@+id/capitalView"
+        app:layout_constraintTop_toTopOf="@+id/capitalView"/>
+
+    <TextView
+        android:id="@+id/areaView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Region"
+        app:layout_constraintStart_toStartOf="@+id/capitalView"
+        app:layout_constraintTop_toBottomOf="@+id/capitalView"/>
+
+    <TextView
+        android:id="@+id/areaViewVal"
+        android:layout_width="185dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="8dp"
+        android:textAlignment="viewEnd"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.72"
+        app:layout_constraintStart_toEndOf="@+id/areaView"
+        app:layout_constraintTop_toTopOf="@+id/areaView"/>
+
 </android.support.constraint.ConstraintLayout>
