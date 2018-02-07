@@ -7,8 +7,8 @@ import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Toast
-import com.bumptech.glide.RequestBuilder
-import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions.withCrossFade
+import com.ahmadrosid.svgloader.SvgLoader
+
 
 
 import kotlinx.android.synthetic.main.activity_detail.*
@@ -23,7 +23,7 @@ class DetailActivity : AppCompatActivity() {
 
         val intent = intent
         val countryCode = intent.getStringExtra("CountryName")
-        val requestBuilder: RequestBuilder<PictureDrawable>
+        //val requestBuilder: RequestBuilder<PictureDrawable>
         println("Country code is"+ countryCode)
         
 
@@ -42,6 +42,10 @@ class DetailActivity : AppCompatActivity() {
                         this.nativeNameVal.text = countryData?.nativeName
                         this.regionViewVal.text = countryData?.region
                         this.capitalViewVal.text = countryData?.capital
+                        SvgLoader.pluck()
+                                .with(this)
+                                .load(countryData?.flag,this.imageView)
+
                     }
                 }
 
