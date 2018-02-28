@@ -8,13 +8,34 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Toast
 import com.ahmadrosid.svgloader.SvgLoader
-
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 
 
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.content_detail.*
 
-class DetailActivity : AppCompatActivity() {
+class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
+
+
+    var location:LatLng = LatLng(-33.862, 151.21)
+    val ZOOM_LEVEL = 5f
+    private var mMap: GoogleMap? = null
+
+    override fun onMapReady(googleMap: GoogleMap?) {
+
+        googleMap ?: return
+        mMap = googleMap
+        with(googleMap) {
+            moveCamera(com.google.android.gms.maps.CameraUpdateFactory.newLatLngZoom(location, ZOOM_LEVEL))
+            addMarker(com.google.android.gms.maps.model.MarkerOptions().position(location))
+            googleMap.uiSettings.setAllGesturesEnabled(true)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,10 +44,11 @@ class DetailActivity : AppCompatActivity() {
 
         val intent = intent
         val countryCode = intent.getStringExtra("CountryName")
-        //val requestBuilder: RequestBuilder<PictureDrawable>
         println("Country code is"+ countryCode)
-        
 
+        val mapFragment : SupportMapFragment? =
+                supportFragmentManager.findFragmentById(R.id.mapFragment) as? SupportMapFragment
+        mapFragment?.getMapAsync(this)
         DataStore.getCountryDataWith(countryCode,{result ->
             if(result!= null){
 
@@ -42,6 +64,10 @@ class DetailActivity : AppCompatActivity() {
                         this.nativeNameVal.text = countryData?.nativeName
                         this.regionViewVal.text = countryData?.region
                         this.capitalViewVal.text = countryData?.capital
+                        this.location =  LatLng(countryData?.latlng?.get(0)!!, countryData?.latlng?.get(1)!!)
+                        mMap?.moveCamera(com.google.android.gms.maps.CameraUpdateFactory.newLatLngZoom(location, ZOOM_LEVEL))
+                        mMap?.addMarker(com.google.android.gms.maps.model.MarkerOptions().position(location))
+
                         SvgLoader.pluck()
                                 .with(this)
                                 .load(countryData?.flag,this.imageView)

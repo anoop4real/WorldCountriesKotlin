@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">WorldCountriesKotlin</string>
-    <string name="title_activity_detail">DetailActivity</string>
+    <string name="title_activity_detail">CountryDetails</string>
 </resources>
