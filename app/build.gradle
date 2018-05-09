@@ -11,7 +11,7 @@ android {
     defaultConfig {
         applicationId "com.example.anoopmohanan.worldcountrieskotlin"
         minSdkVersion 21
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -44,4 +44,9 @@ dependencies {
     //implementation 'com.github.bumptech.glide:glide:4.5.0'
     //kapt 'com.github.bumptech.glide:compiler:4.5.0'
     implementation 'com.google.android.gms:play-services-maps:11.8.0'
+
+    implementation "android.arch.persistence.room:runtime:1.0.0"
+    kapt "android.arch.persistence.room:compiler:1.0.0"
+
 }
+
